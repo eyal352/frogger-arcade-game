@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Frogger Game
-=======
-Frogger Clone
->>>>>>> origin/gh-pages
 ===============================
 
 This project is a clone of the classic arcade game Frogger. It uses Object Oriented JavaScript to generate the player, enemies, and to handle gameplay rules.
