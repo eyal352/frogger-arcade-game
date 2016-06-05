@@ -1,6 +1,8 @@
-frontend-nanodegree-arcade-game
+# Frogger Game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission.
+This project is a clone of the classic arcade game Frogger. It uses Object Oriented JavaScript to generate the player, enemies, and to handle gameplay rules.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+To play, simply go to my [portfolio site](https://www.eyalchistik.com/frogger-arcade-game)
+
+Use the four arrow keys to move the player across the road to the water, while avoiding the moving ladybugs. Your points accumulate every time you reach the water. If you are hit by a ladybug, your player and your score are reset.
