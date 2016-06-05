@@ -1,3 +1,24 @@
 body {
     text-align: center;
+    background-color: forestgreen;
+  font-family: monospace;
+}
+
+#welcome {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size: 35px;
+}
+
+#score {
+  margin-bottom: -20px;
+  font-size: 50px;
+  display: inline-block;
+}
+
+#message {
+  font-size: 35px;
+  display: inline-block;
+  margin-left: 50px;
+  color: aliceblue;
 }
