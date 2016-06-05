@@ -16,9 +16,7 @@ Enemy.randomNumber = function(possibleValues){
     return possibleValues[randomStartingPosition];
 };
 
-  
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position using dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // multiplying movement by the dt parameter, ensuring the game runs at the same speed for all computers.
   this.x += (this.speed)*dt;
@@ -27,7 +25,6 @@ Enemy.prototype.update = function(dt) {
     this.x = 0;
     this.y = Enemy.randomNumber([60,140,220]);
     this.speed = Enemy.randomNumber([75,100,200,300,400]);
-    //console.log(this);
   }
 };
 
@@ -35,7 +32,6 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
 
 // Placing the player object in a variable called Player
 var Player = function() {
@@ -61,7 +57,6 @@ Player.prototype.update = function() {
         score = 0;
     }}
   })
-
   // Display current score and message
   function showScore(s) {
     var currentScore = document.getElementById('score');
