@@ -1,17 +1,19 @@
+'use strict'; // Whole-script strict mode syntax
+
 // Enemies our player must avoid
 var Enemy = function() {
 
   // Set the enemy's inital location and speed
   this.x = 0;
-  this.y = Enemy.randomNumber([60,140,220]);
-  this.speed = Enemy.randomNumber([50,100,200,300]);
+  this.y = this.randomNumber([60,140,220]);
+  this.speed = this.randomNumber([50,100,200,300]);
 
   // The image/sprite for our enemies
   this.sprite = 'images/enemy-bug.png';
 };
 
 
-Enemy.randomNumber = function(possibleValues){
+Enemy.prototype.randomNumber = function(possibleValues){
     var randomStartingPosition = Math.floor(Math.random() * possibleValues.length);
     return possibleValues[randomStartingPosition];
 };
@@ -23,8 +25,8 @@ Enemy.prototype.update = function(dt) {
     // Once the enemy moves off the screen, it will respawn
   if(this.x > 500){
     this.x = 0;
-    this.y = Enemy.randomNumber([60,140,220]);
-    this.speed = Enemy.randomNumber([75,100,200,300,400]);
+    this.y = this.randomNumber([60,140,220]);
+    this.speed = this.randomNumber([75,100,200,300,400]);
   }
 };
 
@@ -36,8 +38,7 @@ Enemy.prototype.render = function() {
 // Placing the player object in a variable called Player
 var Player = function() {
   // players initial location
-    this.x = 200;
-    this.y = 400;
+    this.reset();
   //character image
   this.sprite = 'images/char-boy.png';
 };
@@ -50,13 +51,13 @@ Player.prototype.reset = function() {
 Player.prototype.update = function() {
   //update the player position and check collision
   allEnemies.forEach(function(enemy){
-    if(enemy.x >= player.x - 50 && enemy.x <= player.x + 60) {
-      if (enemy.y >= player.y -20 && enemy.y <= player.y + 20){
+    if(enemy.x >= this.x - 50 && enemy.x <= this.x + 60) {
+      if (enemy.y >= this.y -20 && enemy.y <= this.y + 20){
         // upon collision, player and score are reset
-        player.reset();
+        this.reset();
         score = 0;
     }}
-  })
+  }.bind(this))
   // Display current score and message
   function showScore(s) {
     var currentScore = document.getElementById('score');
@@ -93,7 +94,7 @@ Player.prototype.handleInput = function(key) {
   if(key === 'up'){
     if(this.y <= 50){
     // player reaches water, score is increased, location reset
-      player.reset();
+      this.reset();
       score++;
     } else{this.y -= 90;}
   }
